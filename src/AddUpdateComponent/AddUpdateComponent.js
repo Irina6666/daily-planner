@@ -16,6 +16,7 @@ export default class Pickers extends Component {
 					<div> 
 						<ul>
 							<li>
+								{/*в реакте нет атрибута class, есть className*/}
 								<i class="material-icons left">access_alarms</i>выберите время *:
 								<input type="text" id="autocomplete-input" class="autocomplete"></input>
 							</li>
@@ -29,7 +30,15 @@ export default class Pickers extends Component {
 							</li>
 						</ul>
 					</div>
+					{/*а здесь вот className как положено, но плохое форматирование должно быть <div className='pickers'>*/}
 					<div className = 'pickers'>
+						{/*это не ссылка, а кнопка, это критично, принципиально, ссылки куда-то ведут на другую страницу, всё*/}
+						{/*https://youtu.be/zbx8AtFPCWk*/}
+						{/*плохое форматирование, зачем сделано в одну строку?*/}
+						{/*но самое главное, это неудобный UI, потому что кнопка Создать, работает как кнопка сбросить,
+						по сути она должна была открыть модалку или уйти на новый роут с формой создания, дабы нельзя было её кликнуть
+						ещё раз в процессе создания элемента, Кнопка сохранить выглядит лишней до тех пор пока не начался процесс создания.
+						В общем, UI перегружен, этого нельзя допускать */}
 						<a class="waves-effect waves-light btn"><i class="material-icons left">playlist_add</i>создать</a>
 					</div>
 

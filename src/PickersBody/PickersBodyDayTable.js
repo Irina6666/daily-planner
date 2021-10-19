@@ -1,7 +1,7 @@
 import React from 'react'
 import 'materialize-css/dist/css/materialize.min.css'
 import './PickersBody.css'
-
+// пустые строки лишние
 
 
 export default props => (

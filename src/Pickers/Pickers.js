@@ -14,6 +14,8 @@ export default class Pickers extends Component {
 	render(){
 		return (
 			<div>
+				{/*определенно не хватает стилей*/}
+				{/*https://github.com/wojtekmaj/react-calendar#custom-styling*/}
 				<Calendar
 					onChange = {this.onChange}
 					value = {this.state.date}

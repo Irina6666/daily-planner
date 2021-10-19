@@ -5,7 +5,8 @@ import './PickersBody.css'
 
 export default class PickersBodyDay extends Component {
 	render(){
-		return ( 
+		return (
+			// не используются пробелы между атрибутом и значением
           	<tr>
 				<th className = "col s1">время</th>
               	<th className = "col s2">событие</th>

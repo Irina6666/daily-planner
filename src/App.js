@@ -18,9 +18,9 @@ import PickersBodyWeekTableWeekend from  './PickersBody/PickersBodyWeekTableWeek
 
 import Footer from  './Footer/Footer'
 
-
 class App extends Component {
-
+  // по хорошему есть смысл перенести весь стейт в отдельный файлик с данными, даже временными, потому что он занимает много места и мешает читать код,
+  // файлы не должны быть огромными, особенно если файл можно дробить на меньшие части
   state = {
     weekListHead: [
       {name: '', date:'time'},
@@ -36,6 +36,7 @@ class App extends Component {
         {name: 'воскреенье', date: 'ДАТА'},
       ],
 
+    // это легко делается через цикл
       weekList:[
         {time: '0.00', eventMon: 'lorem', eventTue:'lorem', eventWed: 'lorem', eventThu: 'lorem', eventFrid: 'lorem', eventSat: 'lorem', eventSun: 'loremu'},
         {time: '1.00', eventMon: 'lorem', eventTue:'lorem', eventWed: 'lorem', eventThu: 'lorem', eventFrid: 'lorem', eventSat: 'lorem', eventSun: 'lorem'},
@@ -62,7 +63,9 @@ class App extends Component {
         {time: '22.00', eventMon: 'lorem', eventTue:'lorem', eventWed: 'lorem', eventThu: 'lorem', eventFrid: 'lorem', eventSat: 'lorem', eventSun: 'lorem'},
         {time: '23.00', eventMon: 'lorem', eventTue:'lorem', eventWed: 'lorem', eventThu: 'lorem', eventFrid: 'lorem', eventSat: 'lorem', eventSun: 'lorem'},
       ],
-    
+
+    // это легко делается через цикл
+    // coment -> comment
     dailyList:[
       {time: '0.00', event: 'lorem', coment: 'lorem'},
       {time: '1.00', event: 'lorem', coment: 'lorem'},
@@ -90,17 +93,19 @@ class App extends Component {
       {time: '23.00', event: 'lorem', coment: 'lorem'},
     ]
   }
-
+// пустые строки лишние
 
 
   render() {
     const dailyList = this.state.dailyList
     const weekListHead = this.state.weekListHead
     const weekListHeadWeekend = this.state.weekListHeadWeekend
+    // лишний пробел после const, никогда такого не допускай, это плохое отношение к тому кто читает твой код
     const  weekList = this.state.weekList
 
     return (
       <div>
+        {/*мимо секция head, это должно быть в /public/index.html*/}
         <head className="head">
 					<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"></link>
 			  </head>
@@ -108,7 +113,7 @@ class App extends Component {
         <div className="App">
           <div class="row">
             <div class="col s12">
-              <Header />
+              <Header class="col s12" />
             </div>
 
             <div class="col s4">
@@ -119,6 +124,8 @@ class App extends Component {
               <AddUpdateComponent />
             </div>
 
+            {/*вот это всё должно быть в отдельном компоненте, нельзя превращать любой компонент (в данном случае App.js) */}
+            {/*в большую свалку*/}
             <div class="col s12" >
               <div class="col s12">
                 <table class="striped">
@@ -141,6 +148,7 @@ class App extends Component {
               </div>
             </div>
 
+            {/*и это отдельный компонент*/}
             <div class="col s9" >
               <div class="col s12">
                 <table class="striped">
@@ -177,6 +185,7 @@ class App extends Component {
               </div>
             </div>
 
+            {/*это тоже отдельным компонентом*/}
             <div class="col s3" >
               <div class="col s12">
                 <table class="striped">
@@ -196,6 +205,10 @@ class App extends Component {
                   <tbody>
                     {this.state.weekList.map((list, index) => {
                       return (
+                          // эта таблица будет сильно перегружена, достаточно проверить не с именами типа "Lorem" а например "Стоматолог поставить пломбу",
+                          // а с более реальными 3 словами в заголовке, этот тестовый набор данных не подходит для тестирования,
+                          // потому что ты избегаешь таким образом проверку своего UI на дополнительную текстовую нагрузку,
+                          // что приведет в проде к тому что UI будет перегружен
                         <PickersBodyWeekTableWeekend
                           key = {index}
                           eventSat = {list.eventSat}
@@ -212,6 +225,7 @@ class App extends Component {
               <Footer />
             </div>
 
+            {/*ошибка в табуляции, форматирование прыгает, погугли команду для IDE для автоформата*/}
 	  		  </div>
         </div>
       </div>

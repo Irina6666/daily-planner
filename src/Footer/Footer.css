@@ -1,9 +1,11 @@
 .footer {
+	/*не white а #fff*/
     color: white;
+	/*в вебе принято писать в hex формате все цвета, не rgb, должно быть background: #130D20*/
 	background: rgb(19, 13, 32);
 	padding: 10px;
-	font-size: 20px;
-	
+	font-size: 20px; /*почему далее эти пустые строки?*/
+
 
 
 	
