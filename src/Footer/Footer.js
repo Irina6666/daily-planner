@@ -7,9 +7,7 @@ import './Footer.css'
 export default class Footer extends Component {
 	render(){
 		return (
-			// что за div атрибут?
-			// Вместо @ должно быть &copy; символы(многоточие например, знак рубля и т.д.) должны писаться с помощью юникода
-			<footer div className = 'footer'>@ Irina Kashtanova</footer>
+			<footer div className='footer'>&copy; Irina Kashtanova</footer>
 		)
 	}
 }
