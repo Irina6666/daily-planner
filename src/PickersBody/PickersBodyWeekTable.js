@@ -2,16 +2,16 @@ import React from 'react'
 import 'materialize-css/dist/css/materialize.min.css'
 import './PickersBody.css'
 
-
-
 export default props => (
 	<tr className='list'>
-		<td className='col s12'></td>
-        <td className='col s2'>{props.time}</td>
-		<td className='col s2'>{props.eventMon}</td>
-		<td className='col s2'>{props.eventTue}</td>
-		<td className='col s2'>{props.eventWed}</td>
-		<td className='col s2'>{props.eventThu}</td>
-		<td className='col s2'>{props.eventFrid}</td>
-	</tr>		
+        <td >{props.time}</td>
+		<td >{props.eventMon}</td>
+		<td >{props.eventTue}</td>
+		<td >{props.eventWed}</td>
+		<td >{props.eventThu}</td>
+		<td >{props.eventFrid}</td>
+		<td >{props.eventSat}</td>
+		<td >{props.eventSun}</td>
+	</tr>	 	
 )
+

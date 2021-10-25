@@ -2,9 +2,7 @@ import React, { Component } from 'react'
 import PickersBodyDayTable from  './PickersBodyDayTable'
 import './PickersBody.css'
 
-
 export default class PickersBodyDay extends Component {
-
 	state = {
 		// это легко делается через цикл
 		// coment -> comment
@@ -36,31 +34,37 @@ export default class PickersBodyDay extends Component {
 		]
 	}
 	render(){
-	
 		return (
-			<div className='col s12' >
-                <table className='striped'>
-					<thead>
-						<tr>
-							<th className='col s1'>время</th>
-							<th className='col s2'>событие</th>
-							<th className='col s9'>описание события</th>
-						</tr>
-					</thead>
-					<tbody>
-						{this.state.dailyList.map((list, index) => {
-							return (
-								<PickersBodyDayTable 
-									key = {index}
-									time = {list.time}
-									event = {list.event}
-									coment = {list.coment}
-								/>
-							)
-						})}
-					</tbody>
-                </table>
-            </div>
+			<div>
+				<div className='scroll-table'>
+					<table className='striped'>
+						<thead>
+							<tr>
+								<th width= '6%'>время</th>
+								<th width='27%'>событие</th>
+								<th>описание события</th>
+								<th width='9%'></th>
+							</tr>
+						</thead>
+					</table>
+					<div className='scroll-table-body'>
+						<table>
+							<tbody>
+								{this.state.dailyList.map((list, index) => {
+									return (
+										<PickersBodyDayTable 
+											key = {index}
+											time = {list.time}
+											event = {list.event}
+											coment = {list.coment}
+										/>
+									)
+								})}
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
 		)
 	}
 }

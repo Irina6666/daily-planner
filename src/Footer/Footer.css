@@ -1,13 +1,14 @@
 .footer {
-	/*не white а #fff*/
-    color: white;
-	/*в вебе принято писать в hex формате все цвета, не rgb, должно быть background: #130D20*/
-	background: rgb(19, 13, 32);
-	padding: 10px;
-	font-size: 20px; /*почему далее эти пустые строки?*/
-
-
-
 	
+    color: #fff;
+	background: #a8c0b1;
+	padding: 10px;
+	font-size: 20px; 
+	position: fixed;
+	top: 95%;
 }
 	
+.wight{
+	width: 5000px;
+	
+}

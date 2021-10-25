@@ -1,16 +1,9 @@
 import React, { Component } from 'react';
 import PickersBodyWeek from  './PickersBodyWeek'
-import PickersBodyWeekWeekend from  './PickersBodyWeekWeekend'
 import PickersBodyWeekTable from  './PickersBodyWeekTable'
-import PickersBodyWeekTableWeekend from  './PickersBodyWeekTableWeekend'
+import './PickersBody.css'
 
-
-// эта таблица будет сильно перегружена, достаточно проверить не с именами типа "Lorem" а например "Стоматолог поставить пломбу",
-// а с более реальными 3 словами в заголовке, этот тестовый набор данных не подходит для тестирования,
-// потому что ты избегаешь таким образом проверку своего UI на дополнительную текстовую нагрузку,
-// что приведет в проде к тому что UI будет перегружен
-
-export default class PickersBodySevenDay extends Component {
+class PickersBodySevenDay extends Component {
 	state = {
 		weekListHead: [
 			{name: '', date:'time'},
@@ -19,16 +12,12 @@ export default class PickersBodySevenDay extends Component {
 			{name: 'среда', date: 'ДАТА'},
 			{name: 'четверг', date: 'ДАТА'},
 			{name: 'пятница', date: 'ДАТА'},
-		],
-	
-		weekListHeadWeekend: [
 			{name: 'суббота', date: 'ДАТА'},
-			{name: 'воскреенье', date: 'ДАТА'},
+			{name: 'воскреенье', date: 'ДАТА'}
 		],
-
 		// это легко делается через цикл
 		weekList:[
-			{time: '0.00', eventMon: 'lorem', eventTue:'lorem', eventWed: 'lorem', eventThu: 'lorem', eventFrid: 'lorem', eventSat: 'lorem', eventSun: 'loremu'},
+			{time: '0.00', eventMon: 'Стоматолог поставить пломбу Стоматолог поставить пломбу Стоматолог поставить пломбу', eventTue:'Стоматолог поставить пломбу', eventWed: 'Стоматолог поставить пломбу', eventThu: 'Стоматолог поставить пломбу', eventFrid: 'Стоматолог поставить пломбу', eventSat: 'Стоматолог поставить пломбу', eventSun: 'Стоматолог поставить пломбу'},
 			{time: '1.00', eventMon: 'lorem', eventTue:'lorem', eventWed: 'lorem', eventThu: 'lorem', eventFrid: 'lorem', eventSat: 'lorem', eventSun: 'lorem'},
 			{time: '2.00', eventMon: 'lorem', eventTue:'lorem', eventWed: 'lorem', eventThu: 'lorem', eventFrid: 'lorem', eventSat: 'lorem', eventSun: 'lorem'},
 			{time: '3.00', eventMon: 'lorem', eventTue:'lorem', eventWed: 'lorem', eventThu: 'lorem', eventFrid: 'lorem', eventSat: 'lorem', eventSun: 'lorem'},
@@ -54,32 +43,29 @@ export default class PickersBodySevenDay extends Component {
 			{time: '23.00', eventMon: 'lorem', eventTue:'lorem', eventWed: 'lorem', eventThu: 'lorem', eventFrid: 'lorem', eventSat: 'lorem', eventSun: 'lorem'},
 		],
 	}
-
 	render() {
-	const weekListHead = this.state.weekListHead
-    const weekListHeadWeekend = this.state.weekListHeadWeekend
-    const weekList = this.state.weekList
 		return (
-			<div >
-				<div className='col s9'>
-					<div className='col s12'>
-						<table className='striped'>
-							<thead>
-								<tr>
-									{this.state.weekListHead.map((list, index) => {
-										return (
-											<PickersBodyWeek 
-												key = {index}
-												name = {list.name}
-												date = {list.date}
-											/>
-										)
-									})}
-								</tr>
-							</thead>
-
-							<tbody>
-								{this.state. weekList.map((list, index) => {
+			<div>
+				<div className='scroll-table'>
+					<table className='striped'>
+						<thead>
+							<tr>
+								{this.state.weekListHead.map((list, index) => {
+									return (
+										<PickersBodyWeek 
+											key = {index}
+											name = {list.name}
+											date = {list.date}
+										/>
+									)
+								})}
+							</tr>
+						</thead>
+					</table>
+					<div className='scroll-table-body'>
+						<table>
+								<tbody>
+								{this.state.weekList.map((list, index) => {
 									return (
 										<PickersBodyWeekTable 
 											key = {index}
@@ -87,37 +73,8 @@ export default class PickersBodySevenDay extends Component {
 											eventMon = {list.eventMon}
 											eventTue = {list.eventTue}
 											eventWed = {list.eventWed}
-											eventThu = {list. eventThu}
+											eventThu = {list.eventThu}
 											eventFrid = {list.eventFrid}
-										/>
-									)
-								})}
-							</tbody>
-						</table>
-					</div>
-				</div>
-
-				<div className='col s3'>
-					<div className='col s12'>
-						<table className='striped'>
-							<thead>
-								<tr>
-									{this.state.weekListHeadWeekend.map((list, index) => {
-										return (
-											<PickersBodyWeekWeekend
-												key = {index}
-												name = {list.name}
-												date = {list.date}
-											/>
-										)
-									})}
-								</tr>
-							</thead>
-							<tbody>
-								{this.state.weekList.map((list, index) => {
-									return (
-										<PickersBodyWeekTableWeekend
-											key = {index}
 											eventSat = {list.eventSat}
 											eventSun = {list.eventSun}
 										/>
@@ -131,3 +88,4 @@ export default class PickersBodySevenDay extends Component {
 		)
 	}
 }
+export default  PickersBodySevenDay

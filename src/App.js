@@ -1,35 +1,31 @@
-import React, { Component } from 'react';
-import './App.css';
+import React from 'react'
+import './App.css'
 import Header from './Header/Header'
 import Pickers from  './Pickers/Pickers'
-import AddUpdateComponent from  './AddUpdateComponent/AddUpdateComponent'
 import PickersBodySevenDay from './PickersBody/PickersBodySevenDay'
 import PickersBodyDay from  './PickersBody/PickersBodyDay'
 import Footer from  './Footer/Footer'
+import Modal from './Modal/Modal'
 
-class App extends Component {
-  render() {
+function App ()  {
     return (
-      <div className='App'>
-        <div className='row'>
+      <div className='row'>
           <Header  />
-          <div className='col s4'>
+          <div className='col s5'>
             <Pickers />
           </div>
-          <div className='col s4'>
-            <AddUpdateComponent />
-          </div>
+          <div className=''>
           <PickersBodyDay />
-          <PickersBodySevenDay />
-          <div className='col s12'>
-            <Footer />
           </div>
-
-        </div>
+          <div className=''>
+          <PickersBodySevenDay />
+          </div>
+          <Footer />
+          <Modal />
       </div>
     )
   } 
-}
+
 export default App;
 
 

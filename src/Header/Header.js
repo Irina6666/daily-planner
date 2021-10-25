@@ -1,24 +1,35 @@
 import React, { Component } from 'react'
-import 'materialize-css/dist/css/materialize.min.css'
+import M from 'materialize-css/dist/js/materialize.min.js'
 import './Header.css'
 
-
 export default class Header extends Component {
+    componentDidMount(){
+		document.addEventListener('DOMContentLoaded', function() {
+			var elems = document.querySelectorAll('.modal');
+			M.Modal.init(elems, {});
+		})
+	}
 	render(){
 		return (
-			<nav className='header darken-4'>
+			<nav className='nav-extended header'>
 				<div className='nav-wrapper'>
-					<a href='#' className='brand-logo'>календарь</a>
-					<ul id='nav-mobile' className='right hide-on-med-and-down'>
+					<h3 className='brand-logo'>Logo Time</h3>
+					<ul className='right hide-on-med-and-down'>
 						<li>
-							<a href='#'>за день</a>
+							<button className='waves-effect waves-teal btn-flat'>за день</button>
 						</li>
 						<li>
-							<a href='#'>за неделю</a>
+							<button className='waves-effect waves-teal btn-flat'>за месяц</button>
 						</li>
 					</ul>
 				</div>
-			</nav>	
+				<div className='nav-content'>
+					<span>календарь</span>
+					<button data-target='modal1' className='btn modal-trigger btn-floating btn-large halfway-fab waves-effect waves-light teal'>
+						<i className='material-icons'>add</i>
+					</button>
+				</div>
+			</nav>
 		)
 	}
 }

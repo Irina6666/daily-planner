@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 import Calendar from 'react-calendar'
-import 'materialize-css/dist/css/materialize.min.css'
+import 'react-calendar/dist/Calendar.css';
 import './Pickers.css'
-
 
 export default class Pickers extends Component {
 	state = {
@@ -12,13 +11,13 @@ export default class Pickers extends Component {
 	render(){
 		return (
 			<div>
-				{/*определенно не хватает стилей*/}
-				{/*https://github.com/wojtekmaj/react-calendar#custom-styling*/}
+				<div className='pickers'></div>
 				<Calendar
 					onChange = {this.onChange}
 					value = {this.state.date}
 				/>
+				<br/>
 			</div>
 		)
 	}
-} 
+}  
