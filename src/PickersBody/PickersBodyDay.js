@@ -40,7 +40,7 @@ export default class PickersBodyDay extends Component {
 					<table className='striped'>
 						<thead>
 							<tr>
-								<th width= '6%'>время</th>
+								<th width='6%'>время</th>
 								<th width='27%'>событие</th>
 								<th>описание события</th>
 								<th width='9%'></th>
