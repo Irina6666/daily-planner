@@ -1,8 +1,16 @@
 import React, { Component } from 'react'
 import '../App.css'
 
-export default class Modal extends Component {	
-	render(){	
+export default class Modal extends Component {
+  /**
+   * некорректно давать этому компоненту имя Modal, в данном случае это EventEditModal например потому что у тебя здесь вполне конкретная модалка
+   * в теории если есть компонент Modal то он значительно сложнее: ты должна передавать внутрь Modal компонент, который ты хочешь отобразить динамически
+   * но такой вариант действительно сложный, его содержат сложные UI библиотеки, можно как и у тебя
+   * посмотри например здесь
+   * http://react-materialize.github.io/react-materialize/?path=/story/javascript-modal--default
+   * там справа иконка и можно глянуть исходники как это применяется
+   */
+  render(){
 		return (
 			<div id='modal1' className='modal'>
         <div className='modal-content'>

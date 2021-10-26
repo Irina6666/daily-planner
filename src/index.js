@@ -7,4 +7,5 @@ import 'materialize-css/dist/css/materialize.min.css'
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
+// что делает этот код? если не собираешься что-либо использовать, не оставляй никакого мусора в исходниках
 reportWebVitals();
