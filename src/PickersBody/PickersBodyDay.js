@@ -6,6 +6,8 @@ export default class PickersBodyDay extends Component {
 	state = {
 		// это легко делается через цикл
 		// coment -> comment
+
+		// где исправления к моим комментам?
 		dailyList:[
 			{time: '0.00', event: 'lorem', coment: 'lorem'},
 			{time: '1.00', event: 'lorem', coment: 'lorem'},
@@ -40,6 +42,7 @@ export default class PickersBodyDay extends Component {
 					<table className='striped'>
 						<thead>
 							<tr>
+								{/*это недопустимо писать такие атрибуты, должно быть сделано через стили, я уже писал такой фидбек в прошлый раз*/}
 								<th width='6%'>время</th>
 								<th width='27%'>событие</th>
 								<th>описание события</th>
@@ -50,9 +53,10 @@ export default class PickersBodyDay extends Component {
 					<div className='scroll-table-body'>
 						<table>
 							<tbody>
+								{/*это сделано хорошо*/}
 								{this.state.dailyList.map((list, index) => {
 									return (
-										<PickersBodyDayTable 
+										<PickersBodyDayTable
 											key = {index}
 											time = {list.time}
 											event = {list.event}
