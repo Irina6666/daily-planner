@@ -1,20 +1,10 @@
 import React, { Component } from 'react';
-import PickersBodyWeek from  './PickersBodyWeek'
 import PickersBodyWeekTable from  './PickersBodyWeekTable'
 import './PickersBody.css'
+import { withTranslation } from 'react-i18next';
 
 class PickersBodySevenDay extends Component {
 	state = {
-		weekListHead: [
-			{name: '', date:'time'},
-			{name: 'понедельник', date: 'ДАТА'},
-			{name: 'вторник', date: 'ДАТА'},
-			{name: 'среда', date: 'ДАТА'},
-			{name: 'четверг', date: 'ДАТА'},
-			{name: 'пятница', date: 'ДАТА'},
-			{name: 'суббота', date: 'ДАТА'},
-			{name: 'воскреенье', date: 'ДАТА'}
-		],
 		// это легко делается через цикл
 		weekList:[
 			{time: '0.00', eventMon: 'Стоматолог поставить пломбу Стоматолог поставить пломбу Стоматолог поставить пломбу', eventTue:'Стоматолог поставить пломбу', eventWed: 'Стоматолог поставить пломбу', eventThu: 'Стоматолог поставить пломбу', eventFrid: 'Стоматолог поставить пломбу', eventSat: 'Стоматолог поставить пломбу', eventSun: 'Стоматолог поставить пломбу'},
@@ -44,21 +34,21 @@ class PickersBodySevenDay extends Component {
 		],
 	}
 	render() {
+		const { t } = this.props;
 		return (
 			<div>
 				<div className='scroll-table'>
 					<table className='striped'>
 						<thead>
 							<tr>
-								{this.state.weekListHead.map((list, index) => {
-									return (
-										<PickersBodyWeek 
-											key = {index}
-											name = {list.name}
-											date = {list.date}
-										/>
-									)
-								})}
+							<th>{t('time')}</th>
+							<th>{t('Monday')} 01.11.2021</th>
+							<th>{t('Tuesday')} 01.11.2021</th>
+							<th>{t('Wednesday')} 01.11.2021</th>
+							<th>{t('Thursday')} 01.11.2021</th>
+							<th>{t('Friday')} 01.11.2021</th>
+							<th>{t('Saturday')} 01.11.2021</th>
+							<th>{t('Sunday')} 01.11.2021</th>
 							</tr>
 						</thead>
 					</table>
@@ -88,4 +78,4 @@ class PickersBodySevenDay extends Component {
 		)
 	}
 }
-export default  PickersBodySevenDay
+export default withTranslation()(PickersBodySevenDay)  

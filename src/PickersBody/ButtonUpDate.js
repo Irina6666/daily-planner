@@ -1,25 +1,23 @@
 import React, { Component } from 'react'
-import M from 'materialize-css/dist/js/materialize.min.js'
+import {Modal, Button} from 'react-materialize'
+import EventEditModal from "../EventEditModal/EventEditModal"
 
-// имя файла и класса внутри должно совпадать, это мешает поиску компонента
-export default class Button extends Component {
-	componentDidMount(){
-		// опять инициализация?! смотри Header.js, этот код неверный
-		document.addEventListener('DOMContentLoaded', function() {
-			var elems = document.querySelectorAll('.modal');
-			M.Modal.init(elems, {});
-		  })
-	}
+export default class ButtonUpDate extends Component {
 	render(){
-		// что с форматированием далее? надо поправить
 		return (
 			<td width= '9%'>
-			<span data-target='modal1' className='button material-icons left col s6 tiny modal-trigger'>border_color
-			</span>
-
-			<span className='button material-icons left col s6 tiny'>delete_forever
-		</span>
-		</td>
+				<Modal
+					header='Событие'
+					trigger={
+						<Button 
+							data-target='modal1' 
+							className='modal-trigger waves-effect btn-small'>
+							<i className='material-icons'>border_color</i>
+						</Button>}>
+						<EventEditModal />
+				</Modal>
+				<button className='waves-effect waves-light btn-small'><i className='material-icons'>delete_forever</i></button>
+			</td>
 		)
 	}
 }

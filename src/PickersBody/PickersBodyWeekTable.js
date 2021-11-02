@@ -1,5 +1,4 @@
 import React from 'react'
-import 'materialize-css/dist/css/materialize.min.css'
 import './PickersBody.css'
 
 function PickersBodyWeekTable(props) {
@@ -14,5 +13,4 @@ function PickersBodyWeekTable(props) {
         <td>{props.eventSun}</td>
     </tr>;
 }
-
-export default PickersBodyWeekTable;
+export default PickersBodyWeekTable; 

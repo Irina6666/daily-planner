@@ -1,13 +1,12 @@
 import React, { Component } from 'react'
 import PickersBodyDayTable from  './PickersBodyDayTable'
 import './PickersBody.css'
+import { withTranslation } from 'react-i18next';
 
-export default class PickersBodyDay extends Component {
+class PickersBodyDay extends Component {
 	state = {
 		// это легко делается через цикл
 		// coment -> comment
-
-		// где исправления к моим комментам?
 		dailyList:[
 			{time: '0.00', event: 'lorem', coment: 'lorem'},
 			{time: '1.00', event: 'lorem', coment: 'lorem'},
@@ -36,16 +35,17 @@ export default class PickersBodyDay extends Component {
 		]
 	}
 	render(){
-		return (
+		const { t } = this.props;
+		return ( 
 			<div>
 				<div className='scroll-table'>
 					<table className='striped'>
 						<thead>
 							<tr>
 								{/*это недопустимо писать такие атрибуты, должно быть сделано через стили, я уже писал такой фидбек в прошлый раз*/}
-								<th width='6%'>время</th>
-								<th width='27%'>событие</th>
-								<th>описание события</th>
+								<th width='6%'>{t('time')}</th>
+								<th width='27%'>{t('event')}</th>
+								<th>{t('event description')}</th>
 								<th width='9%'></th>
 							</tr>
 						</thead>
@@ -53,7 +53,6 @@ export default class PickersBodyDay extends Component {
 					<div className='scroll-table-body'>
 						<table>
 							<tbody>
-								{/*это сделано хорошо*/}
 								{this.state.dailyList.map((list, index) => {
 									return (
 										<PickersBodyDayTable
@@ -72,5 +71,4 @@ export default class PickersBodyDay extends Component {
 		)
 	}
 }
-
-
+export default withTranslation()(PickersBodyDay);

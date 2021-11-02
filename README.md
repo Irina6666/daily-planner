@@ -29,3 +29,5 @@ ReactJS
 https://github.com/wojtekmaj/react-calendar
 
 
+ <div id='PickersBodyDayTab' className='col s12'><PickersBodyDay /></div>
+          <div id='PickersBodySevenDayTab' className='col s12'><PickersBodySevenDay /></div>

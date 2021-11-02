@@ -1,41 +1,61 @@
 import React, { Component } from 'react'
 import M from 'materialize-css/dist/js/materialize.min.js'
 import './Header.css'
+import '../PickersBody/PickersBodyDay'
+import { withTranslation } from 'react-i18next';
+import i18next from 'i18next';
 
-export default class Header extends Component {
-    componentDidMount(){
-		// не понимаю как оно здесь оказалось, этот Header и инициализация скриптов не имеют ничего общего
-		/*
-		 этот код должен быть в Modal.js, только там встречается .modal класс
-		 */
+const languages = [ 
+	{
+		code: 'en',
+		name: 'English',
+		country_code: 'gb'
+	},
+	{
+		code: 'ru',
+		name: 'Русский',
+		country_code: 'ru'
+	}
+]
+
+class Header extends Component {
+	componentDidMount(){
 		document.addEventListener('DOMContentLoaded', function() {
-			var elems = document.querySelectorAll('.modal');
-			M.Modal.init(elems, {});
+			var elems = document.querySelectorAll('.dropdown-trigger');
+			M.Dropdown.init(elems, {});
 		})
 	}
 	render(){
-		return (
-			<nav className='nav-extended header'>
-				<div className='nav-wrapper'>
-					<h3 className='brand-logo'>Logo Time</h3>
-					<ul className='right hide-on-med-and-down'>
-						<li>
-							{/*пропущен обязательный type=button как и все кнопки ниже*/}
-							<button className='waves-effect waves-teal btn-flat'>за день</button>
-						</li>
-						<li>
-							<button className='waves-effect waves-teal btn-flat'>за месяц</button>
-						</li>
-					</ul>
-				</div>
-				<div className='nav-content'>
-					<span>календарь</span>
-
-					<button data-target='modal1' className='btn modal-trigger btn-floating btn-large halfway-fab waves-effect waves-light teal'>
-						<i className='material-icons'>add</i>
-					</button>
-				</div>
-			</nav>
+		const { t } = this.props;
+		return (  
+			<div>
+				<nav className='nav-extended header'>
+					<div className='nav-wrapper'>
+						<h3 className='brand-logo'>Logo Time</h3> 
+						<div className = 'd-flex justify-content-end'>
+							<div className="dropdown">
+								<button className="btn-floating btn-large  waves-effect waves-light teal btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+									<i className="material-icons">language</i>
+								</button>
+								<ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+									{languages.map(({ code, name, country_code }) => (
+										<li key={country_code}>
+											<button className="dropdown-item" onClick = {() => i18next.changeLanguage(code)
+											}>
+												{name}
+											</button>
+										</li>
+									))}
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div className='nav-content'>
+						<span>{t('calendar')}</span>
+					</div>
+				</nav>
+			</div>
 		)
 	}
 }
+export default withTranslation()(Header);
