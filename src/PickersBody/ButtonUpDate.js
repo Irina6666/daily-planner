@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import {Modal, Button} from 'react-materialize'
-import EventEditModal from "../EventEditModal/EventEditModal"
+import EventEditModal from "../EventEditModal/BodyModal"
 
 export default class ButtonUpDate extends Component {
 	render(){
 		return (
-			<td width= '9%'>
+			<td className='head-colomn-button line'>
 				<Modal
 					header='Событие'
 					trigger={
@@ -16,8 +16,7 @@ export default class ButtonUpDate extends Component {
 						</Button>}>
 						<EventEditModal />
 				</Modal>
-				<button className='waves-effect waves-light btn-small'><i className='material-icons'>delete_forever</i></button>
 			</td>
 		)
 	}
-}
+}  

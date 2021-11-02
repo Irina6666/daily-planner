@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import PickersBodyDayTable from  './PickersBodyDayTable'
-import './PickersBody.css'
+import './TableStyle.css'
+import './scrollbar.css'
 import { withTranslation } from 'react-i18next';
 
 class PickersBodyDay extends Component {
@@ -42,16 +43,16 @@ class PickersBodyDay extends Component {
 					<table className='striped'>
 						<thead>
 							<tr>
-								{/*это недопустимо писать такие атрибуты, должно быть сделано через стили, я уже писал такой фидбек в прошлый раз*/}
-								<th width='6%'>{t('time')}</th>
-								<th width='27%'>{t('event')}</th>
-								<th>{t('event description')}</th>
-								<th width='9%'></th>
+								<th className='head-colomn-time line-head'>{t('time')}</th>
+								<th className='head-colomn-event line-head'>{t('event')}</th>
+								<th className='line-head'>{t('event description')}</th>
+								<th className='head-colomn-button line-head'></th>
+								<th className='head-colomn-button line-head'></th>
 							</tr>
 						</thead>
 					</table>
 					<div className='scroll-table-body'>
-						<table>
+						<table className='striped'>
 							<tbody>
 								{this.state.dailyList.map((list, index) => {
 									return (
@@ -69,6 +70,6 @@ class PickersBodyDay extends Component {
 				</div>
 			</div>
 		)
-	}
+	}  
 }
 export default withTranslation()(PickersBodyDay);

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PickersBodyWeekTable from  './PickersBodyWeekTable'
-import './PickersBody.css'
+import './TableStyle.css'
 import { withTranslation } from 'react-i18next';
 
 class PickersBodySevenDay extends Component {
@@ -38,22 +38,22 @@ class PickersBodySevenDay extends Component {
 		return (
 			<div>
 				<div className='scroll-table'>
-					<table className='striped'>
+					<table className='table-body'>
 						<thead>
 							<tr>
-							<th>{t('time')}</th>
-							<th>{t('Monday')} 01.11.2021</th>
-							<th>{t('Tuesday')} 01.11.2021</th>
-							<th>{t('Wednesday')} 01.11.2021</th>
-							<th>{t('Thursday')} 01.11.2021</th>
-							<th>{t('Friday')} 01.11.2021</th>
-							<th>{t('Saturday')} 01.11.2021</th>
-							<th>{t('Sunday')} 01.11.2021</th>
+							<th className='head-colomn-time line-head'>{t('time')}</th>
+							<th className='line-head'>{t('Monday')} 01.11.2021</th>
+							<th className='line-head'>{t('Tuesday')} 01.11.2021</th>
+							<th className='line-head'>{t('Wednesday')} 01.11.2021</th>
+							<th className='line-head'>{t('Thursday')} 01.11.2021</th>
+							<th className='line-head'>{t('Friday')} 01.11.2021</th>
+							<th className='line-head'>{t('Saturday')} 01.11.2021</th>
+							<th className='line-head'>{t('Sunday')} 01.11.2021</th>
 							</tr>
 						</thead>
 					</table>
 					<div className='scroll-table-body'>
-						<table>
+						<table className='table-body striped'>
 								<tbody>
 								{this.state.weekList.map((list, index) => {
 									return (

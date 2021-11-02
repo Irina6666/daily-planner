@@ -1,13 +1,16 @@
 import React from 'react'
+import ButtonDelete from './ButtonDelete';
 import ButtonUpDate from './ButtonUpDate'
-import './PickersBody.css'
+import './TableStyle.css'
 
 function PickersBodyDayTable(props) {
     return <tr className='list'>
-        <td width='6%'>{props.time}</td>
-        <td width='27%'>{props.event}</td>
-		<td>{props.coment}</td>
+        <td className='head-colomn-time line'>{props.time}</td>
+        <td className='head-colomn-event line'>{props.event}</td>
+		<td className='line'>{props.coment}</td>
 		<ButtonUpDate />
+		<ButtonDelete />
+
 	</tr>
 } 
-export default PickersBodyDayTable;   
+export default PickersBodyDayTable;     

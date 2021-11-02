@@ -1,0 +1,43 @@
+.list{
+	font-size: 15px;
+}
+.table-day-width {
+	width: 70px
+}
+.scroll-table-body {
+	height: 500px;
+	overflow-x: auto;
+}
+.table-body {
+	width:100%;
+	table-layout: fixed;
+	border: none;
+}
+.line-head {
+	font-weight: bold;
+	text-align: left;
+	border: none;
+	padding: 10px 15px;
+	background: #d8d8d8;
+	font-size: 14px;
+	border-left: 1px solid #ddd;
+	border-right: 1px solid #ddd;
+}
+.line {
+	text-align: left;
+	border-left: 1px solid #ddd;
+	border-right: 1px solid #ddd;
+	padding: 10px 15px;
+	font-size: 14px;
+	vertical-align: top;
+}
+.head-colomn-time{
+	width: 6%
+}
+.head-colomn-event{
+	width: 27%
+}
+.head-colomn-button{
+	width: 4%
+}
+
