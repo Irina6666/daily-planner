@@ -5,12 +5,14 @@ import { withTranslation } from 'react-i18next';
 class EventEditModal extends Component {
   render(){
     const { t } = this.props; {t('')}
-		return ( 
+		return (
+            // форматирование всё ещё прыгает
 			<div className="row">
         <form className="col s12">
           <div className="row">
           <label>{t('choose_a_time')}</label>
             <select className='browser-default'>
+              {/*цикл по option здесь*/}
               <option id ='0'>{t('choose_a_time')}</option>
               <option id='1'>00.00</option>
               <option id='2'>01.00</option>
@@ -24,7 +26,7 @@ class EventEditModal extends Component {
               <option id='10'>09.00</option>
               <option id='11'>10.00</option>
               <option id='12'>11.00</option>
-              <option id='13'>12.00</option> 
+              <option id='13'>12.00</option>
               <option id='14'>13.00</option>
               <option id='15'>14.00</option>
               <option id='16'>15.00</option>
@@ -41,6 +43,7 @@ class EventEditModal extends Component {
           <div className="row">
             <div className="input-field col s12">
               <i className='material-icons prefix'>mode_edit</i>
+              {/*id не использем по возможности*/}
               <textarea id='icon_prefix2' className='materialize-textarea'></textarea>
               <label htmlFor='icon_prefix2'>{t('event')}</label>
             </div>

@@ -2,12 +2,13 @@
     color: #fff;
 	background: #a8c0b1;
 	padding: 10px;
-	font-size: 20px; 
+	font-size: 20px;
 	position: fixed;
 	top: 95%;
 }
-	
+
+/*wight не распространенно в программировании*/
 .wight{
 	width: 5000px;
-	
+	/*5000px ещё осталось с первого занятия, фидбек копится*/
 }
