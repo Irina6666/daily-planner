@@ -41,14 +41,14 @@ class PickersBodySevenDay extends Component {
 					<table className='table-body'>
 						<thead>
 							<tr>
-							<th className='head-colomn-time line-head'>{t('time')}</th>
-							<th className='line-head'>{t('Monday')} 01.11.2021</th>
-							<th className='line-head'>{t('Tuesday')} 01.11.2021</th>
-							<th className='line-head'>{t('Wednesday')} 01.11.2021</th>
-							<th className='line-head'>{t('Thursday')} 01.11.2021</th>
-							<th className='line-head'>{t('Friday')} 01.11.2021</th>
-							<th className='line-head'>{t('Saturday')} 01.11.2021</th>
-							<th className='line-head'>{t('Sunday')} 01.11.2021</th>
+							<th className='head-colomn-time line-head'>{t('TIME')}</th>
+							<th className='line-head'>{t('MONDAY')} 01.11.2021</th>
+							<th className='line-head'>{t('TUESDAY')} 01.11.2021</th>
+							<th className='line-head'>{t('WEDNESDAY')} 01.11.2021</th>
+							<th className='line-head'>{t('THURSDAY')} 01.11.2021</th>
+							<th className='line-head'>{t('FRIDAY')} 01.11.2021</th>
+							<th className='line-head'>{t('SATUDAY')} 01.11.2021</th>
+							<th className='line-head'>{t('SUNDAY')} 01.11.2021</th>
 							</tr>
 						</thead>
 					</table>

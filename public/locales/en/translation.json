@@ -1,0 +1,19 @@
+{
+	"CALENDAR": "calendar",
+	"DAY": "day",
+	"MONTH": "month",
+	"TIME": "time",
+	"EVENT": "event",
+	"EVENT_DESCRIPTION": "event description",
+	"MONDAY": "Monday",
+	"TUESDAY": "Tuesday",
+	"WEDNESDAY": "Wednesday",
+	"THURSDAY": "Thursday",
+	"FRIDAY": "Friday",
+	"SATUDAY": "Saturday",
+	"SUNDAY": "Sunday",
+	"CHOOSE_A_TIME": "choose a time",
+	"COMMENT": "comment",
+	"SAVE": "save",
+	"CLOSE": "close"
+}

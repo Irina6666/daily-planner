@@ -5,13 +5,14 @@ import { withTranslation } from 'react-i18next';
 class EventEditModal extends Component {
   render(){
     const { t } = this.props; {t('')}
-		return ( 
+    return (      
 			<div className="row">
         <form className="col s12">
           <div className="row">
-          <label>{t('choose_a_time')}</label>
+          <label>{t('CHOOSE_A_TIME')}</label>
             <select className='browser-default'>
-              <option id ='0'>{t('choose_a_time')}</option>
+              {/*цикл по option здесь*/}
+              <option id ='0'>{t('CHOOSE_A_TIME')}</option>
               <option id='1'>00.00</option>
               <option id='2'>01.00</option>
               <option id='3'>02.00</option>
@@ -24,7 +25,7 @@ class EventEditModal extends Component {
               <option id='10'>09.00</option>
               <option id='11'>10.00</option>
               <option id='12'>11.00</option>
-              <option id='13'>12.00</option> 
+              <option id='13'>12.00</option>
               <option id='14'>13.00</option>
               <option id='15'>14.00</option>
               <option id='16'>15.00</option>
@@ -41,21 +42,20 @@ class EventEditModal extends Component {
           <div className="row">
             <div className="input-field col s12">
               <i className='material-icons prefix'>mode_edit</i>
-              <textarea id='icon_prefix2' className='materialize-textarea'></textarea>
-              <label htmlFor='icon_prefix2'>{t('event')}</label>
+              <textarea  className='materialize-textarea'></textarea>
+              <label htmlFor='icon_prefix2'>{t('EVENT')}</label>
             </div>
           </div>
           <div className="row">
             <div className="input-field col s12">
               <i className='material-icons prefix'>mode_edit</i>
               <textarea id='icon_prefix2' className='materialize-textarea'></textarea>
-              <label htmlFor='icon_prefix2'>{t('comment')}</label>
+              <label htmlFor='icon_prefix2'>{t('COMMENT')}</label>
             </div>
           </div>
         </form>
         <div className='modal-footer'>
-          <button className='modal-close waves-effect waves-green btn-flat'>{t('save')}</button>
-          <button className='modal-close waves-effect waves-green btn-flat'>{t('close')}</button>
+          <button className='modal-close waves-effect waves-green btn-flat'>{t('SAVE')}</button>
         </div>
       </div>
 		)

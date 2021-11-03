@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PickersBodyDayTable from  './PickersBodyDayTable'
 import './TableStyle.css'
-import './scrollbar.css'
+import './Scrollbar.css'
 import { withTranslation } from 'react-i18next';
 
 class PickersBodyDay extends Component {
@@ -43,9 +43,9 @@ class PickersBodyDay extends Component {
 					<table className='striped'>
 						<thead>
 							<tr>
-								<th className='head-colomn-time line-head'>{t('time')}</th>
-								<th className='head-colomn-event line-head'>{t('event')}</th>
-								<th className='line-head'>{t('event description')}</th>
+								<th className='head-colomn-time line-head'>{t('TIME')}</th>
+								<th className='head-colomn-event line-head'>{t('EVENT')}</th>
+								<th className='line-head'>{t('EVENT_DESCRIPTION')}</th>
 								<th className='head-colomn-button line-head'></th>
 								<th className='head-colomn-button line-head'></th>
 							</tr>

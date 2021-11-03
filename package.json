@@ -50,6 +50,8 @@
   },
   "devDependencies": {
     "@types/materialize-css": "^1.0.11",
+    "@typescript-eslint/eslint-plugin": "^5.3.0",
+    "@typescript-eslint/parser": "^5.3.0",
     "eslint": "^7.32.0",
     "eslint-plugin-import": "^2.25.2",
     "eslint-plugin-react": "^7.26.1"
