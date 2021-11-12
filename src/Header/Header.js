@@ -3,8 +3,9 @@ import './Header.css'
 import '../PickersBody/PickersBodyDay'
 import { withTranslation } from 'react-i18next';
 import {Modal, Button} from 'react-materialize'
-import EventEditModal from "../EventEditModal/BodyModal"
+import BodyModal from "../EventEditModal/BodyModal"
 import SelectLang from './SelectLang';
+
 
 class Header extends Component {
 	render(){
@@ -21,7 +22,7 @@ class Header extends Component {
 						<div className="nav-content">
 						{t('CALENDAR')}
 						
-							<a className="btn-floating btn-large halfway-fab waves-effect waves-light teal">
+						<a className="btn-floating btn-large halfway-fab waves-effect waves-light teal">
 							<Modal 
 								header={t('EVENT')}
 								trigger={
@@ -31,7 +32,7 @@ class Header extends Component {
 										<i className='material-icons'>add</i>
 									</Button>}
 							>
-								<EventEditModal />
+								<BodyModal />
 							</Modal>
 							</a>
 						</div>

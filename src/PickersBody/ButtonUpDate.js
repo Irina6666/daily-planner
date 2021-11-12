@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import {Modal, Button} from 'react-materialize'
-import EventEditModal from "../EventEditModal/BodyModal"
+import BodyModal from "../EventEditModal/BodyModal"
 
 export default class ButtonUpDate extends Component {
 	render(){
@@ -14,7 +14,7 @@ export default class ButtonUpDate extends Component {
 							className='modal-trigger waves-effect btn-small'>
 							<i className='material-icons'>border_color</i>
 						</Button>}>
-						<EventEditModal />
+						<BodyModal />
 				</Modal>
 			</td>
 		)

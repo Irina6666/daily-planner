@@ -1,18 +1,39 @@
-import React, { Component } from 'react'
+import React from 'react'
 import '../App.css'
-import { withTranslation } from 'react-i18next';
+import './BodyModal.css'
+import { useForm } from 'react-hook-form'
 
-class EventEditModal extends Component {
-  render(){
-    const { t } = this.props; {t('')}
+
+export default function EventEditModal () {
+  const {
+    register, 
+    handleSubmit, 
+    formState: { errors }, 
+    reset,
+    trigger,
+  }
+  = useForm();
+
+  const onSubmit = (data) => {
+    console.log (data);
+    reset()
+  };
+
+
     return (      
 			<div className="row">
-        <form className="col s12">
+        <form className="col s12" onSubmit={handleSubmit(onSubmit)} >
           <div className="row">
-          <label>{t('CHOOSE_A_TIME')}</label>
-            <select className='browser-default'>
+          <h6>'CHOOSE_A_TIME':</h6>
+            <select 
+              className={`browser-default ${errors.time && 'invalid'}`}
+              {...register('time', {required: "Time is Required"})}
+              onKeyUp={() => {
+                trigger('time')
+              }}
+            >
               {/*цикл по option здесь*/}
-              <option id ='0'>{t('CHOOSE_A_TIME')}</option>
+              <option id ='0'> </option>
               <option id='1'>00.00</option>
               <option id='2'>01.00</option>
               <option id='3'>02.00</option>
@@ -38,27 +59,58 @@ class EventEditModal extends Component {
               <option id='23'>22.00</option>
               <option id='24'>23.00</option>
             </select>
-          </div>
-          <div className="row">
+            {errors.time && (<small className= "error">Time is Required</small>)}
+            
+  
             <div className="input-field col s12">
-              <i className='material-icons prefix'>mode_edit</i>
-              <textarea  className='materialize-textarea'></textarea>
-              <label htmlFor='icon_prefix2'>{t('EVENT')}</label>
+              <h6>'EVENT':</h6>
+              <input 
+                type='text' 
+                className={`materialize-textarea ${errors.event && 'invalid'}`}
+              
+                {...register('event', {required: "Event is Required",
+                minLength: {
+                  value: 3,
+                  message: 'Minimum required length is 3'
+                },
+                maxLength: {
+                  value: 15,
+                  message: 'Minimum allowed length is 15'
+                }
+                })}
+                onKeyUp={() => {
+                  trigger('event')
+                }}
+                >
+              </input>
+              {errors.event && (<small className= "error">{errors.event.message}</small>)}
             </div>
-          </div>
-          <div className="row">
+
             <div className="input-field col s12">
-              <i className='material-icons prefix'>mode_edit</i>
-              <textarea id='icon_prefix2' className='materialize-textarea'></textarea>
-              <label htmlFor='icon_prefix2'>{t('COMMENT')}</label>
+              <h6>'COMMENT (COMMENT IS NOT REQUIRED):'</h6>
+              <input 
+                type='text' 
+                className={`materialize-textarea ${errors.comment && 'invalid'}`} 
+                {...register('comment', {
+                maxLength: {
+                  value: 5,
+                  message: 'Maximum allowed length is 50'
+                }})}
+                onKeyUp={() => {
+                  trigger('comment')
+                }}
+                >
+              </input>
+              {errors.comment && (<small className= "error">{errors.comment.message}</small>)}
+              
             </div>
+            <div className='modal-footer'>
+              <button className='modal-close waves-effect waves-green btn-flat'>'SAVE'</button>
+          </div>
           </div>
         </form>
-        <div className='modal-footer'>
-          <button className='modal-close waves-effect waves-green btn-flat'>{t('SAVE')}</button>
-        </div>
       </div>
 		)
 	}
-}
-export default withTranslation()(EventEditModal);
+
+
