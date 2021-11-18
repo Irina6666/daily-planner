@@ -48,7 +48,7 @@ class PickersBodyDay extends Component {
 								<th className='line-head'>{t('EVENT_DESCRIPTION')}</th>
 								<th className='head-colomn-button line-head'></th>
 								<th className='head-colomn-button line-head'></th>
-							</tr>
+							</tr> 
 						</thead>
 					</table>
 					<div className='scroll-table-body'>
