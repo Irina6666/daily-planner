@@ -8,6 +8,7 @@ import { loadEvents } from './redux/action'
 
 const Home = () => {
   let dispatch = useDispatch();
+  const {events} = useSelector (state => state.data)
 
   useEffect (() => {
     dispatch(loadEvents());

@@ -16,7 +16,7 @@ export default class ButtonUpDate extends Component {
 						</Button>}>
 						<BodyModal />
 				</Modal>
-			</td>
+			</td> 
 		)
 	}
 }  

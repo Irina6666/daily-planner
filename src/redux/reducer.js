@@ -13,7 +13,13 @@ const eventsReducers = (state = initiaState, action) => {
 				...state,
 				events: action.payload,
 				loading: false,
+			};
+			case types.DELETE_EVENT:
+			return {
+				...state,
+				loading: false,
 			}
+
 		default:
 			return state;
 	}

@@ -2,14 +2,18 @@
 	"events":[
 		{
 			"id": "1",
+			"date": "01.11.2021",
+			"dayWeek": "Monday",
 			"time": "00.00",
-			"event": "hello world",
+			"event": "hello world. I am Monday",
 			"comment": "one"
 		},
 		{
 			"id": "2",
-			"time": "00.01",
-			"event": "hello world",
+			"date": "02.11.2021",
+			"dayWeek": "Tuesday",
+			"time": "00.00",
+			"event": "hello world. I am Tuesday",
 			"comment": "two"
 		}
 	]
