@@ -1,11 +1,7 @@
 import React from 'react'
 import './App.css'
 import {Routes, Route} from 'react-router-dom'
-import Header from './Header/Header'
-import Pickers from  './Pickers/Pickers'
-import NativeTabs from './PickersBody/NativeTabs'
 import Home from './Home'
-
 
 function App ()  {
   return (

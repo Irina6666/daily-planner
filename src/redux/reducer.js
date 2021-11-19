@@ -1,20 +1,20 @@
 import * as types from "./actionType"
 
 const initiaState = {
-	events: [],
-	event: {},
+	tacks: [],
+	tack: {},
 	loading: true
 };
 
 const eventsReducers = (state = initiaState, action) => {
 	switch (action.type) {
-		case types.GET_EVENTS:
+		case types.GET_TACKS:
 			return {
 				...state,
-				events: action.payload,
+				tacks: action.payload,
 				loading: false,
 			};
-			case types.DELETE_EVENT:
+			case types.DELETE_TACK:
 			return {
 				...state,
 				loading: false,

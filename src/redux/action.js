@@ -1,32 +1,31 @@
 import * as types from "./actionType"
 import axios from "axios";
 
-const getEvents = (events) => ({
-	type: types.GET_EVENTS,
-	payload: events,
+const getTacks = (tacks) => ({
+	type: types.GET_TACKS,
+	payload: tacks,
 });
-const eventDeleted = () => ({
-	type: types.DELETE_EVENT
+const tackDeleted = () => ({
+	type: types.DELETE_TACK
 })
 
-export const loadEvents = () => {
+export const loadTacks = () => {
 	return function (dispatch) {
 		axios
 		.get(`${process.env.REACT_APP_API}`)
 		.then((responce) => {
-			console.log('responce', responce)
-			dispatch(getEvents(responce.data))
+			dispatch(getTacks(responce.data))
 		})
 		.catch((error) => console.log(error))
 	}
 };
-export const deleteEvent = (i) => {
+export const deleteTack = (id) => {
 	return function (dispatch) {
 		axios
 		.delete(`${process.env.REACT_APP_API}/${id}`)
-		.then((responce) => {
-			dispatch(eventDeleted());
-			dispatch(loadEvents())
+		.then(() => {
+			dispatch(tackDeleted());
+			dispatch(loadTacks())
 		})
 		.catch((error) => console.log(error))
 	}

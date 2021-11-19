@@ -3,18 +3,18 @@ import './TableStyle.css'
 import './Scrollbar.css'
 import { withTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux'
-import { loadEvents } from '../redux/action'
+import { loadTacks } from '../redux/action'
 import ButtonDelete from './ButtonDelete';
 import ButtonUpDate from './ButtonUpDate'
-import userEvent from '@testing-library/user-event'
+
 
 const PickersBodyDay = () => {
 
 		let dispatch = useDispatch();
-		const {events} = useSelector (state => state.data)
+		const {tacks} = useSelector (state => state.data)
 
 		useEffect (() => {
-			dispatch(loadEvents());
+			dispatch(loadTacks());
 		}, [])
 		return ( 
 			<div>
@@ -33,14 +33,14 @@ const PickersBodyDay = () => {
 					<div className='scroll-table-body'>
 						<table className='striped'>
 							<tbody>
-								{events && events.map((event) => (
+								{tacks && tacks.map((tack) => (
 								
-								<tr className='list' key={event.id}>
-									<td className='head-colomn-time line'>{event.time}</td>
-									<td className='head-colomn-event line'>{event.event}</td>
-									<td className='line'>{event.comment}</td>
+								<tr className='list' key={tack.id}>
+									<td className='head-colomn-time line'>{tack.time}</td>
+									<td className='head-colomn-event line'>{tack.tack}</td>
+									<td className='line'>{tack.comment}</td>
 									<ButtonUpDate />
-									<ButtonDelete />
+									<ButtonDelete tack = {tack}/>
 								</tr>
 								))}
 							</tbody>

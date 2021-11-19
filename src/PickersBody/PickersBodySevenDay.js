@@ -2,16 +2,16 @@ import React, {useEffect} from 'react';
 import './TableStyle.css'
 import { withTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux'
-import { loadEvents } from '../redux/action'
+import { loadTacks } from '../redux/action'
 
 
 	const PickersBodySevenDay = () => {
 
 		let dispatch = useDispatch();
-		const {events} = useSelector (state => state.data)
+		const {tacks} = useSelector (state => state.data)
 
 		useEffect (() => {
-			dispatch(loadEvents());
+			dispatch(loadTacks());
 		}, [])
 		
 		return (
@@ -34,17 +34,17 @@ import { loadEvents } from '../redux/action'
 					<div className='scroll-table-body'>
 						<table className='table-body striped'>
 								<tbody>
-								{events && events.map((event) => (
+								{tacks && tacks.map((tack) => (
 
-									<tr className='list'>
-									<td className='head-colomn-time line'>{event.time}</td>
-									<td className='line'>{event.event}</td>
-									<td className='line'>{event.event}</td>
-									<td className='line'>{event.event}</td>
-									<td className='line'>{event.event}</td>
-									<td className='line'>{event.event}</td>
-									<td className='line'>{event.event}</td>
-									<td className='line'>{event.event}</td>
+									<tr className='list' key={tack.id}>
+									<td className='head-colomn-time line'>{tack.time}</td>
+									<td className='line'>{tack.tack}</td>
+									<td className='line'>{tack.tack}</td>
+									<td className='line'>{tack.tack}</td>
+									<td className='line'>{tack.tack}</td>
+									<td className='line'>{tack.tack}</td>
+									<td className='line'>{tack.tack}</td>
+									<td className='line'>{tack.tack}</td>
 								</tr>
 								))}
 							</tbody>

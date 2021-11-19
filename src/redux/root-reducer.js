@@ -1,8 +1,8 @@
 import { combineReducers } from "redux";
-import eventsReducers from "./reducer";
+import tacksReducers from "./reducer";
 
 const rootReducer = combineReducers ({
-	data: eventsReducers
+	data: tacksReducers
 });
 
 export default rootReducer;

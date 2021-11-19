@@ -4,14 +4,14 @@ import Header from './Header/Header'
 import Pickers from  './Pickers/Pickers'
 import NativeTabs from './PickersBody/NativeTabs'
 import { useDispatch, useSelector } from 'react-redux'
-import { loadEvents } from './redux/action'
+import { loadTacks } from './redux/action'
 
 const Home = () => {
   let dispatch = useDispatch();
-  const {events} = useSelector (state => state.data)
+  const {tacks} = useSelector (state => state.data)
 
   useEffect (() => {
-    dispatch(loadEvents());
+    dispatch(loadTacks());
   }, [])
 
   return (

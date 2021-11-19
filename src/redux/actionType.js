@@ -1,2 +1,2 @@
-export const GET_EVENTS = "GET_EVENTS";
-export const DELETE_EVENT = "DELETE_EVENT"
+export const GET_TACKS = "GET_TACKS";
+export const DELETE_TACK = "DELETE_TACK"
