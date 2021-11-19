@@ -5,7 +5,7 @@ const getEvents = (events) => ({
 	type: types.GET_EVENTS,
 	payload: events,
 });
-const eventDelete = () => ({
+const eventDeleted = () => ({
 	type: types.DELETE_EVENT
 })
 
@@ -20,13 +20,12 @@ export const loadEvents = () => {
 		.catch((error) => console.log(error))
 	}
 };
-export const deleteEvent = (id) => {
+export const deleteEvent = (i) => {
 	return function (dispatch) {
 		axios
 		.delete(`${process.env.REACT_APP_API}/${id}`)
 		.then((responce) => {
-			console.log('responce', responce);
-			dispatch(eventDelete());
+			dispatch(eventDeleted());
 			dispatch(loadEvents())
 		})
 		.catch((error) => console.log(error))

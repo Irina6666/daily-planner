@@ -15,7 +15,7 @@ import { loadEvents } from '../redux/action'
 		}, [])
 		
 		return (
-			<div>
+			<div> 
 				<div className='scroll-table'>
 					<table className='table-body'>
 						<thead>
