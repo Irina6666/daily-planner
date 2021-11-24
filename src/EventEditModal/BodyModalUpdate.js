@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { addTack, getSingleTack } from '../redux/action'
 import { useParams } from 'react-router-dom'
 
-const EventEditModalUpdate = () => { 
+const EventEditModalUpdate = (props) => {
 	const { register, formState: { errors }, trigger,} = useForm();
 
 	const [state, setState] = useState ({
@@ -17,19 +17,15 @@ const EventEditModalUpdate = () => {
 
 	const [error, setError] = useState("")
 	let {id} = useParams()
-	const {task} = useSelector (state => state.data)
-	let dispatch = useDispatch() 
+	const task = useSelector (state => state.data.tack)
+	let dispatch = useDispatch()
 	const { time, tack, comment} = state
 
 	useEffect (() => {
-		dispatch(getSingleTack(id));
-	}, [])
-
-	useEffect (() => {
-		if(task) {
-			setState({ ...task })
-		}
-	}, [task])
+        if (props.id) {
+            dispatch(getSingleTack(props.id));
+        }
+	}, [props.id])
 
 	const handleInputChange = (e) => {
     let {name, value} = e.target;
@@ -46,13 +42,15 @@ const EventEditModalUpdate = () => {
     }
 }
 
-    return (      
+    return (
 		<div className="row">
 			{error && <h3 className = "error">{error}</h3>}
 			<form className="col s12"  onSubmit={handleSubmit}>
 				<div className="row">
+                    {task ? task.id : ''}
+
 					<h6>'CHOOSE_A_TIME':</h6>
-					<select 
+					<select
 						onChange = {handleInputChange}
 						label = "time"
 						value = {time}
@@ -91,12 +89,12 @@ const EventEditModalUpdate = () => {
 					{errors.time && (<small className= "error">Time is Required</small>)}
 					<div className="input-field col s12">
 						<h6>'EVENT':</h6>
-						<input 
+						<input
 							onChange = {handleInputChange}
 							label = "tack"
 							value = {`${tack}`}
 							name = "tack"
-							type='text' 
+							type='text'
 							className={`materialize-textarea ${errors.event && 'invalid'}`}
 							{...register('event', {required: "Event is Required",
 							minLength: {
@@ -118,13 +116,13 @@ const EventEditModalUpdate = () => {
 					</div>
 					<div className="input-field col s12">
 						<h6>'COMMENT (COMMENT IS NOT REQUIRED):'</h6>
-						<input 
+						<input
 							onChange = {handleInputChange}
 							label = "comment"
 							value = {comment}
-							type='text' 
+							type='text'
 							name = "comment"
-							className={`materialize-textarea ${errors.comment && 'invalid'}`} 
+							className={`materialize-textarea ${errors.comment && 'invalid'}`}
 							{...register('comment', {
 								maxLength: {
 									value: 5,
@@ -138,8 +136,8 @@ const EventEditModalUpdate = () => {
 				{errors.comment && (<small className= "error">{errors.comment.message}</small>)}
 				</div>
 				<div className='modal-footer'>
-					<button 
-						className='modal-close waves-effect waves-green btn-flat' 
+					<button
+						className='waves-effect waves-green btn-flat'
 						type='submit'
 						onChange = {handleInputChange}>'SAVE
 					</button>
