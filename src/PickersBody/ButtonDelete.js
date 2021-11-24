@@ -20,4 +20,4 @@ const ButtonDelete = (props) => {
 	) 
 }
 
-export default ButtonDelete;
+export default ButtonDelete; 

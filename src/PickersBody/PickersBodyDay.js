@@ -39,7 +39,7 @@ const PickersBodyDay = () => {
 									<td className='head-colomn-time line'>{tack.time}</td>
 									<td className='head-colomn-event line'>{tack.tack}</td>
 									<td className='line'>{tack.comment}</td>
-									<ButtonUpDate />
+									<ButtonUpDate tack = {tack}/>
 									<ButtonDelete tack = {tack}/>
 								</tr>
 								))}

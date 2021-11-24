@@ -1,31 +1,51 @@
-import React from 'react'
+import React, {useState} from 'react'
 import '../App.css'
 import './BodyModal.css'
 import { useForm } from 'react-hook-form'
+import { useDispatch } from 'react-redux'
+import { addTack } from '../redux/action'
 
+const EventEditModal = () => { 
+  const { register, formState: { errors }, trigger,} = useForm();
 
-export default function EventEditModal () {
-  const {
-    register, 
-    handleSubmit, 
-    formState: { errors }, 
-    reset,
-    trigger,
+  const [state, setState] = useState ({
+    time: "",
+    tack: "",
+    comment: ""
+  })
+
+  const [error, setError] = useState("")
+
+  let dispatch = useDispatch() 
+
+  const { time, tack, comment} = state
+
+  const handleInputChange = (e) => {
+    let {name, value} = e.target;
+    setState ({ ...state, [name]: value})
   }
-  = useForm();
 
-  const onSubmit = (data) => {
-    console.log (data);
-    reset()
-  };
-
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!time || !tack) {
+      setError ("please input time and event input")
+    } else {
+      dispatch (addTack(state));
+      setError ("")
+    }
+  }
 
     return (      
 			<div className="row">
-        <form className="col s12" onSubmit={handleSubmit(onSubmit)} >
+        {error && <h3 className = "error">{error}</h3>}
+        <form className="col s12"  onSubmit={handleSubmit}>
           <div className="row">
           <h6>'CHOOSE_A_TIME':</h6>
             <select 
+              onChange = {handleInputChange}
+              label = "time"
+              value = {time}
+              name = "time"
               className={`browser-default ${errors.time && 'invalid'}`}
               {...register('time', {required: "Time is Required"})}
               onKeyUp={() => {
@@ -65,6 +85,10 @@ export default function EventEditModal () {
             <div className="input-field col s12">
               <h6>'EVENT':</h6>
               <input 
+                onChange = {handleInputChange}
+                label = "tack"
+                value = {tack}
+                name = "tack"
                 type='text' 
                 className={`materialize-textarea ${errors.event && 'invalid'}`}
               
@@ -89,7 +113,11 @@ export default function EventEditModal () {
             <div className="input-field col s12">
               <h6>'COMMENT (COMMENT IS NOT REQUIRED):'</h6>
               <input 
+                onChange = {handleInputChange}
+                label = "comment"
+                value = {comment}
                 type='text' 
+                name = "comment"
                 className={`materialize-textarea ${errors.comment && 'invalid'}`} 
                 {...register('comment', {
                 maxLength: {
@@ -105,7 +133,11 @@ export default function EventEditModal () {
               
             </div>
             <div className='modal-footer'>
-              <button className='modal-close waves-effect waves-green btn-flat'>'SAVE'</button>
+              <button 
+                className='modal-close waves-effect waves-green btn-flat' 
+                type='submit'
+                onChange = {handleInputChange}>'SAVE'
+              </button>
           </div>
           </div>
         </form>
@@ -113,4 +145,4 @@ export default function EventEditModal () {
 		)
 	}
 
-
+  export default EventEditModal;

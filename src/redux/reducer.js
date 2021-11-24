@@ -14,11 +14,18 @@ const eventsReducers = (state = initiaState, action) => {
 				tacks: action.payload,
 				loading: false,
 			};
+			case types.ADD_TACK:
 			case types.DELETE_TACK:
 			return {
 				...state,
 				loading: false,
-			}
+			};
+			case types.GET_SINGLE_TACK:
+			return {
+				...state,
+				tack: action.payload,
+				loading: false,
+			};
 
 		default:
 			return state;

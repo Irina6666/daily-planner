@@ -1,22 +1,32 @@
-import React, { Component } from 'react'
+import React from 'react'
 import {Modal, Button} from 'react-materialize'
-import BodyModal from "../EventEditModal/BodyModal"
+import BodyModalUpdate from "../EventEditModal/BodyModalUpdate"
+import { useDispatch } from 'react-redux'
+import { getSingleTack } from '../redux/action'
 
-export default class ButtonUpDate extends Component {
-	render(){
+const ButtonUpDate = (props) => {
+	let dispatch = useDispatch();
+	
+	let handleUpDate = (id) => {
+		if (window.confirm ("Are you sure wanted to update this event?")){
+			dispatch (getSingleTack(id))
+		}
+	}
+
 		return (
 			<td className='head-colomn-button line'>
 				<Modal
 					header='Событие'
 					trigger={
 						<Button 
-							data-target='modal1' 
-							className='modal-trigger waves-effect btn-small'>
+							className='modal-trigger waves-effect btn-small'
+							onClick={() => handleUpDate(props.tack.id)}>
 							<i className='material-icons'>border_color</i>
 						</Button>}>
-						<BodyModal />
+						<BodyModalUpdate />
 				</Modal>
-			</td> 
+			</td>  
 		)
 	}
-}  
+
+export default ButtonUpDate;

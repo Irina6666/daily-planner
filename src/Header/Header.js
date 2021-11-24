@@ -1,15 +1,29 @@
-import React, { Component } from 'react'
+import React, {useEffect} from 'react'
 import './Header.css'
 import '../PickersBody/PickersBodyDay'
 import { withTranslation } from 'react-i18next';
 import {Modal, Button} from 'react-materialize'
 import BodyModal from "../EventEditModal/BodyModal"
 import SelectLang from './SelectLang';
+import { useDispatch, useSelector } from 'react-redux'
+import { loadTacks } from '../redux/action'
+import { addTack } from '../redux/action'
 
+const Header = () => {
+	let dispatch = useDispatch();
 
-class Header extends Component {
-	render(){
-		const { t } = this.props;
+	let handleAddTack = () => {
+		if (window.confirm ("Are you wanted to add new event?")){
+			dispatch (addTack())
+		}
+	}
+	
+	const {tacks} = useSelector (state => state.data)
+
+	useEffect (() => {
+		dispatch(loadTacks());
+	}, [])
+
 		return (  
 			<div>
 				<nav className="nav-extended header">
@@ -20,15 +34,15 @@ class Header extends Component {
 							</ul>
 						</div>
 						<div className="nav-content">
-						{t('CALENDAR')}
+						'CALENDAR'
 						
 						<a className="btn-floating btn-large halfway-fab waves-effect waves-light teal">
 							<Modal 
-								header={t('EVENT')}
+								header='EVENT'
 								trigger={
 									<Button waves='light'
-										data-target='modal1' 
-										className='btn modal-trigger btn-floating btn-large  waves-effect waves-light teal'>
+										className='btn modal-trigger btn-floating btn-large  waves-effect waves-light teal'
+										onClick={()=> handleAddTack()}>
 										<i className='material-icons'>add</i>
 									</Button>}
 							>
@@ -40,6 +54,6 @@ class Header extends Component {
 			</div>
 		)
 	}
-}
-export default withTranslation()(Header);
+
+export default Header;
 
