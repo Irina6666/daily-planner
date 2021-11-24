@@ -5,6 +5,7 @@ import { useForm } from 'react-hook-form'
 import { useDispatch } from 'react-redux'
 import { addTack } from '../redux/action'
 
+
 const EventEditModal = () => { 
   const { register, formState: { errors }, trigger,} = useForm();
 
@@ -13,12 +14,12 @@ const EventEditModal = () => {
     tack: "",
     comment: ""
   })
-
+  
   const [error, setError] = useState("")
 
   let dispatch = useDispatch() 
 
-  const { time, tack, comment} = state
+  const {time, tack, comment} = state
 
   const handleInputChange = (e) => {
     let {name, value} = e.target;
@@ -27,12 +28,12 @@ const EventEditModal = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!time || !tack) {
-      setError ("please input time and event input")
-    } else {
+    //if (!time || !tack) {
+      //setError ("please input time and event input")
+    //} else {
       dispatch (addTack(state));
       setError ("")
-    }
+    //}
   }
 
     return (      
@@ -98,8 +99,8 @@ const EventEditModal = () => {
                   message: 'Minimum required length is 3'
                 },
                 maxLength: {
-                  value: 15,
-                  message: 'Minimum allowed length is 15'
+                  value: 25,
+                  message: 'Minimum allowed length is 25'
                 }
                 })}
                 onKeyUp={() => {
@@ -121,8 +122,8 @@ const EventEditModal = () => {
                 className={`materialize-textarea ${errors.comment && 'invalid'}`} 
                 {...register('comment', {
                 maxLength: {
-                  value: 5,
-                  message: 'Maximum allowed length is 50'
+                  value: 150,
+                  message: 'Maximum allowed length is 150'
                 }})}
                 onKeyUp={() => {
                   trigger('comment')

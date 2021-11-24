@@ -14,8 +14,8 @@ const eventsReducers = (state = initiaState, action) => {
 				tacks: action.payload,
 				loading: false,
 			};
-			case types.ADD_TACK:
 			case types.DELETE_TACK:
+			case types.ADD_TACK:
 			return {
 				...state,
 				loading: false,

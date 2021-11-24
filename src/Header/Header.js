@@ -5,24 +5,8 @@ import { withTranslation } from 'react-i18next';
 import {Modal, Button} from 'react-materialize'
 import BodyModal from "../EventEditModal/BodyModal"
 import SelectLang from './SelectLang';
-import { useDispatch, useSelector } from 'react-redux'
-import { loadTacks } from '../redux/action'
-import { addTack } from '../redux/action'
 
 const Header = () => {
-	let dispatch = useDispatch();
-
-	let handleAddTack = () => {
-		if (window.confirm ("Are you wanted to add new event?")){
-			dispatch (addTack())
-		}
-	}
-	
-	const {tacks} = useSelector (state => state.data)
-
-	useEffect (() => {
-		dispatch(loadTacks());
-	}, [])
 
 		return (  
 			<div>
@@ -41,8 +25,7 @@ const Header = () => {
 								header='EVENT'
 								trigger={
 									<Button waves='light'
-										className='btn modal-trigger btn-floating btn-large  waves-effect waves-light teal'
-										onClick={()=> handleAddTack()}>
+										className='btn modal-trigger btn-floating btn-large  waves-effect waves-light teal'>
 										<i className='material-icons'>add</i>
 									</Button>}
 							>

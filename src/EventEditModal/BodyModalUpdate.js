@@ -4,7 +4,7 @@ import './BodyModal.css'
 import { useForm } from 'react-hook-form'
 import { useDispatch, useSelector } from 'react-redux'
 import { addTack, getSingleTack } from '../redux/action'
-import { useParams } from 'react-router-dom'
+
 
 const EventEditModalUpdate = (props) => {
 	const { register, formState: { errors }, trigger,} = useForm();
@@ -16,7 +16,6 @@ const EventEditModalUpdate = (props) => {
 })
 
 	const [error, setError] = useState("")
-	let {id} = useParams()
 	const task = useSelector (state => state.data.tack)
 	let dispatch = useDispatch()
 	const { time, tack, comment} = state
@@ -34,12 +33,12 @@ const EventEditModalUpdate = (props) => {
 
 	const handleSubmit = (e) => {
     e.preventDefault();
-    if (!time || !tack) {
-		setError ("please input time and event input")
-    } else {
+    //if (!time || !tack) {
+		//setError ("please input time and event input")
+    //} else {
 		dispatch (addTack(state));
 		setError ("")
-    }
+    //}
 }
 
     return (
@@ -47,13 +46,11 @@ const EventEditModalUpdate = (props) => {
 			{error && <h3 className = "error">{error}</h3>}
 			<form className="col s12"  onSubmit={handleSubmit}>
 				<div className="row">
-                    {task ? task.id : ''}
-
 					<h6>'CHOOSE_A_TIME':</h6>
 					<select
 						onChange = {handleInputChange}
 						label = "time"
-						value = {time}
+						value = {task ? task.time : ''}
 						name = "time"
 						className={`browser-default ${errors.time && 'invalid'}`}
 						{...register('time', {required: "Time is Required"})}
@@ -85,6 +82,7 @@ const EventEditModalUpdate = (props) => {
 						<option id='22'>21.00</option>
 						<option id='23'>22.00</option>
 						<option id='24'>23.00</option>
+						{task ? task.time : ''}
 					</select>
 					{errors.time && (<small className= "error">Time is Required</small>)}
 					<div className="input-field col s12">
@@ -92,7 +90,7 @@ const EventEditModalUpdate = (props) => {
 						<input
 							onChange = {handleInputChange}
 							label = "tack"
-							value = {`${tack}`}
+							value = {task ? task.tack : ''}
 							name = "tack"
 							type='text'
 							className={`materialize-textarea ${errors.event && 'invalid'}`}
@@ -102,31 +100,32 @@ const EventEditModalUpdate = (props) => {
 								message: 'Minimum required length is 3'
 							},
 							maxLength: {
-								value: 15,
-								message: 'Minimum allowed length is 15'
+								value: 25,
+								message: 'Minimum allowed length is 25'
 							}
 							})}
 							onKeyUp={() => {
 							trigger('event')
 							}}
-						>
+						> 
 
 						</input>
 						{errors.event && (<small className= "error">{errors.event.message}</small>)}
+						
 					</div>
 					<div className="input-field col s12">
 						<h6>'COMMENT (COMMENT IS NOT REQUIRED):'</h6>
 						<input
 							onChange = {handleInputChange}
 							label = "comment"
-							value = {comment}
+							value ={task ? task.comment : ''}
 							type='text'
 							name = "comment"
 							className={`materialize-textarea ${errors.comment && 'invalid'}`}
 							{...register('comment', {
 								maxLength: {
-									value: 5,
-									message: 'Maximum allowed length is 50'
+									value: 150,
+									message: 'Maximum allowed length is 150'
 								}})}
 							onKeyUp={() => {
 								trigger('comment')

@@ -2,18 +2,11 @@ import React, {useEffect} from 'react';
 import './TableStyle.css'
 import { withTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux'
-import { loadTacks } from '../redux/action'
 
+const PickersBodySevenDay = () => {
 
-	const PickersBodySevenDay = () => {
+	const {tacks} = useSelector (state => state.data)
 
-		let dispatch = useDispatch();
-		const {tacks} = useSelector (state => state.data)
-
-		useEffect (() => {
-			dispatch(loadTacks());
-		}, [])
-		
 		return (
 			<div> 
 				<div className='scroll-table'>

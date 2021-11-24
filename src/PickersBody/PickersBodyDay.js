@@ -3,19 +3,14 @@ import './TableStyle.css'
 import './Scrollbar.css'
 import { withTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux'
-import { loadTacks } from '../redux/action'
 import ButtonDelete from './ButtonDelete';
 import ButtonUpDate from './ButtonUpDate'
 
 
 const PickersBodyDay = () => {
 
-		let dispatch = useDispatch();
 		const {tacks} = useSelector (state => state.data)
 
-		useEffect (() => {
-			dispatch(loadTacks());
-		}, [])
 		return ( 
 			<div>
 				<div className='scroll-table'>
