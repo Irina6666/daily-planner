@@ -11,8 +11,6 @@ function App ()  {
       <div className='row'>
         <Routes>
           <Route exact path = "/" element={<Home/>} />
-          <Route exact path = "/BodyModal" element={<BodyModal/>} />
-          <Route exact path = "/BodyModalUpdate/:id" element={<BodyModalUpdate/>} />
         </Routes>
       </div>
     </div>

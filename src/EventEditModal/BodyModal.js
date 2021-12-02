@@ -1,20 +1,19 @@
 import React, {useState} from 'react'
 import '../App.css'
 import './BodyModal.css'
-import { useForm } from 'react-hook-form'
 import { useDispatch } from 'react-redux'
 import { addTack } from '../redux/action'
 
 
+
 const EventEditModal = () => { 
-  const { register, formState: { errors }, trigger,} = useForm();
 
   const [state, setState] = useState ({
     time: "",
     tack: "",
     comment: ""
   })
-  
+
   const [error, setError] = useState("")
 
   let dispatch = useDispatch() 
@@ -26,32 +25,37 @@ const EventEditModal = () => {
     setState ({ ...state, [name]: value})
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmited = (e) => {
     e.preventDefault();
-    //if (!time || !tack) {
-      //setError ("please input time and event input")
-    //} else {
+    if (!time || !tack ) 
+      {
+      setError ("error, boxes time and event fields cannot be empty");
+    } 
+
+    
+    else {
       dispatch (addTack(state));
       setError ("")
-    //}
+    }
   }
 
     return (      
 			<div className="row">
-        {error && <h3 className = "error">{error}</h3>}
-        <form className="col s12"  onSubmit={handleSubmit}>
+        {error && <h6 className = "error">{error}</h6>}
+        <form className="col s12" onSubmit={handleSubmited} 
+        
+
+        >
           <div className="row">
           <h6>'CHOOSE_A_TIME':</h6>
             <select 
+              
               onChange = {handleInputChange}
               label = "time"
               value = {time}
               name = "time"
-              className={`browser-default ${errors.time && 'invalid'}`}
-              {...register('time', {required: "Time is Required"})}
-              onKeyUp={() => {
-                trigger('time')
-              }}
+              className= "browser-default"
+            
             >
               {/*цикл по option здесь*/}
               <option id ='0'> </option>
@@ -80,68 +84,50 @@ const EventEditModal = () => {
               <option id='23'>22.00</option>
               <option id='24'>23.00</option>
             </select>
-            {errors.time && (<small className= "error">Time is Required</small>)}
-            
-  
+            <label>
             <div className="input-field col s12">
               <h6>'EVENT':</h6>
               <input 
+                title = "Только русские или латинские слова с пробелами, не более 25 символов. Поле не может быть пустым"
+                pattern="^[A-Za-zА-Яа-яЁё\s]{0,25}"
                 onChange = {handleInputChange}
                 label = "tack"
                 value = {tack}
                 name = "tack"
                 type='text' 
-                className={`materialize-textarea ${errors.event && 'invalid'}`}
-              
-                {...register('event', {required: "Event is Required",
-                minLength: {
-                  value: 3,
-                  message: 'Minimum required length is 3'
-                },
-                maxLength: {
-                  value: 25,
-                  message: 'Minimum allowed length is 25'
-                }
-                })}
-                onKeyUp={() => {
-                  trigger('event')
-                }}
+                className="materialize-textarea"
                 >
               </input>
-              {errors.event && (<small className= "error">{errors.event.message}</small>)}
             </div>
+            </label>
 
+            <label>
             <div className="input-field col s12">
               <h6>'COMMENT (COMMENT IS NOT REQUIRED):'</h6>
               <input 
+                title = "Только русские или латинские слова с пробелами, не более 150 символов. "
+                pattern="^[A-Za-zА-Яа-яЁё\s]{0,150}"
                 onChange = {handleInputChange}
                 label = "comment"
                 value = {comment}
                 type='text' 
                 name = "comment"
-                className={`materialize-textarea ${errors.comment && 'invalid'}`} 
-                {...register('comment', {
-                maxLength: {
-                  value: 150,
-                  message: 'Maximum allowed length is 150'
-                }})}
-                onKeyUp={() => {
-                  trigger('comment')
-                }}
+                className= "materialize-textarea" 
                 >
               </input>
-              {errors.comment && (<small className= "error">{errors.comment.message}</small>)}
-              
             </div>
+            </label>
+
             <div className='modal-footer'>
               <button 
-                className='modal-close waves-effect waves-green btn-flat' 
+                className='waves-effect waves-green btn-flat' 
                 type='submit'
                 onChange = {handleInputChange}>'SAVE'
               </button>
           </div>
           </div>
         </form>
+        
       </div>
 		)
 	}

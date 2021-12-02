@@ -16,6 +16,7 @@ const eventsReducers = (state = initiaState, action) => {
 			};
 			case types.DELETE_TACK:
 			case types.ADD_TACK:
+			case types.UPDATE_TACK:
 			return {
 				...state,
 				loading: false,

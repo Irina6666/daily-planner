@@ -1,26 +1,16 @@
 {
   "tacks": [
     {
-      "id": "2",
-      "date": "02.11.2021",
-      "dayWeek": "Tuesday",
-      "time": "00.00",
-      "tack": "hello world. I am Tuesday",
-      "comment": "two"
+      "time": "01,00",
+      "tack": "заметка",
+      "comment": "комментарий",
+      "id": "1"
     },
     {
-      "id": "3",
-      "date": "01.11.2021",
-      "dayWeek": "Monday",
-      "time": "00.00",
-      "tack": "hello world. I am Monday",
-      "comment": "one"
-    },
-    {
-      "time": "",
-      "tack": "",
-      "comment": "",
-      "id": "hTmNg0P"
+      "time": "01.00",
+      "tack": "hello world",
+      "comment": "two",
+      "id": "RXYo02j"
     }
   ]
 }

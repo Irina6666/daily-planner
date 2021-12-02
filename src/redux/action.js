@@ -12,6 +12,11 @@ const tackAdded = () => ({
 	type: types.ADD_TACK
 })
 
+const tackUpdated = () => ({
+	type: types.UPDATE_TACK
+})
+
+
 const getTack = (tack) => ({
 	type: types.GET_SINGLE_TACK,
 	payload: tack,
@@ -61,3 +66,18 @@ export const getSingleTack = (id) => {
 		.catch((error) => console.log(error))
 	}
 };
+
+export const updateTack = (tack, id) => {
+	return function (dispatch) {
+		axios
+		.put(`${process.env.REACT_APP_API}/${id}`, tack)
+		.then((responce) => {
+			console.log ("responce", responce)
+			dispatch(tackUpdated());
+			dispatch(loadTacks())
+		})
+		.catch((error) => console.log(error))
+	}
+};
+
+
