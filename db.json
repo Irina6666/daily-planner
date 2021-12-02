@@ -1,16 +1,16 @@
 {
   "tacks": [
     {
-      "time": "01,00",
+      "time": "11",
       "tack": "заметка",
       "comment": "комментарий",
       "id": "1"
     },
     {
-      "time": "01.00",
+      "time": "4",
       "tack": "hello world",
       "comment": "two",
-      "id": "RXYo02j"
+      "id": "2"
     }
   ]
 }
