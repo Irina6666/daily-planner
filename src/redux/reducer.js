@@ -2,7 +2,7 @@ import * as types from "./actionType"
 
 const initiaState = {
 	tacks: [],
-	tack: null,
+	tack: {},
 	loading: true
 };
 
